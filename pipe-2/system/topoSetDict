@@ -99,13 +99,16 @@ actions
 {
 	      name    wall;
 	      type    faceSet;
-	     action  delete;						      source  faceToFace;                                              sourceInfo                                                       {                                                                  set bottom_patch_negative;                                      }
+	     action  delete;						      source  faceToFace;                                              sourceInfo                                                       {                                                                  set bottomPatch;                                     
+       }
 
 }
 {
 	      name    wall;
 	      type    faceSet;
-	      action  delete;						       source  faceToFace;                                              sourceInfo                                                       {                                                                  set upper_patch_negative;                                      }
+	      action  delete;	
+	      source  faceToFace;                                              sourceInfo                                                       {                                                                  set  upperPatch;                                     
+	  }
 
 }
 

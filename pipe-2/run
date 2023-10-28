@@ -1,0 +1,4 @@
+./Allclean
+blockMesh > blokMesh.log
+snappyHexMesh >snappyHexMesh.log
+touch snappy_pipe.foam

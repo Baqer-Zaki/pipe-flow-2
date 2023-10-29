@@ -21,7 +21,6 @@ actions
         type    faceSet;
         action  new;
         source  patchToFace;
-	source  patchToFace;
 	sourceInfo
 	        {
 		   patch cylinder;
@@ -99,8 +98,8 @@ actions
 {
 	      name    wall;
 	      type    faceSet;
-	     action  delete;						      source  faceToFace;                                              sourceInfo                                                       {                                                                  set bottomPatch;                                     
-       }
+	     action  delete;						            source  faceToFace;                                                      sourceInfo                                                              {                                                                       set bottomPatch;                                     
+             }
 
 }
 {

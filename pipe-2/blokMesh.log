@@ -8,10 +8,10 @@
 Build  : _76d719d1-20220624 OPENFOAM=2206 version=2206
 Arch   : "LSB;label=32;scalar=64"
 Exec   : blockMesh
-Date   : Oct 28 2023
-Time   : 09:26:04
+Date   : Oct 29 2023
+Time   : 10:12:07
 Host   : MSI
-PID    : 14001
+PID    : 7126
 I/O    : uncollated
 Case   : /home/baqer/Git-hub-OpenFoam/snappy-pipe-2/pipe-flow-2/pipe-2
 nProcs : 1

@@ -21,21 +21,21 @@ FoamFile
     upperPatch
     {
         type            patch;
-        nFaces          17408;
-        startFace       2240084;
+        nFaces          22728;
+        startFace       2437200;
     }
     wall
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          174112;
-        startFace       2257492;
+        nFaces          55956;
+        startFace       2459928;
     }
     bottomPatch
     {
         type            patch;
-        nFaces          21688;
-        startFace       2431604;
+        nFaces          25068;
+        startFace       2515884;
     }
 )
 

@@ -35,12 +35,21 @@ geometry
     }
 
     // Analytical shape; cylinder, sphere
-    refinementBox
+    bottomBox
     {
         type box;
-        min  (-1.0 -0.7 0.0);
-        max  ( 8.0  0.7 2.5);
+        min  (-1.0 -1.0 -1.0);
+        max  ( 1.0  1.0 0.4);
     }
+       upperBox
+    {
+	 type box;
+       min  (-1.0 -1.0 39.6);
+       max  ( 1.0  1.0 41.0);
+    }
+
+
+
 }
 
 
@@ -112,7 +121,7 @@ castellatedMeshControls
         cylinder
         {
             // Surface-wise min and max refinement level
-            level (2 5);
+            level (1 4);
         }
     }
 
@@ -134,14 +143,18 @@ castellatedMeshControls
     // - outside. Same but cells outside.
 
     refinementRegions
-    {
-     //   refinementBox
-       // {
-         //   mode inside;
-           // levels ((1E15 5));
-       // }
+  {
+       bottomBox
+        { 
+		mode inside;
+                levels ((1.0 3.0));
+  
+       }
+        upperBox
+       {
+		 mode inside;
+	         levels  ((1.0 3.0));					      }
     }
-
     // Mesh selection
     // ~~~~~~~~~~~~~~
 

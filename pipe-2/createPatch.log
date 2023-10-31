@@ -8,10 +8,10 @@
 Build  : _76d719d1-20220624 OPENFOAM=2206 version=2206
 Arch   : "LSB;label=32;scalar=64"
 Exec   : createPatch -overwrite
-Date   : Oct 29 2023
-Time   : 10:16:46
+Date   : Oct 31 2023
+Time   : 14:24:10
 Host   : MSI
-PID    : 7129
+PID    : 28396
 I/O    : uncollated
 Case   : /home/baqer/Git-hub-OpenFoam/snappy-pipe-2/pipe-flow-2/pipe-2
 nProcs : 1
@@ -80,9 +80,9 @@ Adding new patch bottomPatch from
 
 Repatching mesh region0
 
-Read 17408 faces from faceSet upperPatch
-Read 174112 faces from faceSet wall
-Read 21688 faces from faceSet bottomPatch
+Read 22728 faces from faceSet upperPatch
+Read 55956 faces from faceSet wall
+Read 25068 faces from faceSet bottomPatch
 Doing topology modification to order faces.
 
 Not synchronising points.

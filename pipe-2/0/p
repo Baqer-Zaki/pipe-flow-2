@@ -32,7 +32,9 @@ boundaryField
 
     upperPatch
     {
-       type            zeroGradient;
+       type  fixedValue;
+       value  uniform 0; 
+
     }
 }
 

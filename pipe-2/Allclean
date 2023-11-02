@@ -4,7 +4,7 @@ cd "${0%/*}" || exit                                # Run from this directory
 #
 
 ------------------------------------------------------------------------------
-cleanCase
+cleanCase0
 
 #### this is the pervious code....
 #keepCases="

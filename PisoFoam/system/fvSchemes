@@ -29,8 +29,8 @@ divSchemes
 {
     default         none;
      div(phi,U)      bounded Gauss linear;
-
      div(div(phi,U)) Gauss linear;
+      div((nuEff*dev2(T(grad(U))))) Gauss linear;
 }
 
 laplacianSchemes
@@ -42,11 +42,11 @@ interpolationSchemes
 {
     default         linear;
 }
-
 snGradSchemes
 {
-    default         orthogonal;
+	    default         uncorrected;
 }
+
 
 
 // ************************************************************************* //

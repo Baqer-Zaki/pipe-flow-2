@@ -1,8 +1,8 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v2206                                 |
-|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 FoamFile
@@ -12,6 +12,7 @@ FoamFile
     class       dictionary;
     object      topoSetDict;
 }
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 actions
@@ -21,100 +22,123 @@ actions
         type    faceSet;
         action  new;
         source  patchToFace;
-	sourceInfo
-	        {
-		   patch cylinder;
-		}
-    
-       }
-       ////////////////////////
-       //
-       {
-         name    bottom_patch_negative;
-	 type    faceSet;
-         action  new;
-	 source  boxToFace;
-	 sourceInfo
-	       {
-	       box (-0.6 -0.6 0.1) (0.6 0.6 41);
-	       }
-               }
-//////////////////////
+        sourceInfo
+	{
+	  patch cylinder;
+	}
 
-	 {
-	  name    upper_patch_negative;
-          type    faceSet;
-          action  new;
-	  source  boxToFace;
-	  sourceInfo
-          {
-	   box (-0.6 -0.6 -1) (0.6 0.6 39.99);
-	  }
+    }
 
-           }
-////////////////////
-// new set bottom patch
- {
-	 name    bottomPatch;
-	 type    faceSet;
-	 action  new;
-	 source  faceToFace;
-	 sourceInfo
-	 {				                                    set cylinder;						   }
- }
-{
-	     name    bottomPatch;
-             type    faceSet;
-	     action  delete;
-	     source  faceToFace;
-	     sourceInfo                                                       {                                                                  set bottom_patch_negative;                                      }
-  }
-////////////////////  
-//set 2 
-{
-	        name    upperPatch;
-	        type    faceSet;
-	        action  new;
-	        source  faceToFace;
-	        sourceInfo						              {                                                                  set cylinder;                                                  }			   
-}
-{
-	        name    upperPatch;
-	        type    faceSet;
-                action  delete;
-	        source  faceToFace;					         sourceInfo                                                       {                                                                  set upper_patch_negative;                                      }
-								 }
-///////////
-//set 3 the wall 
-{
-              name    wall;
-	      type    faceSet;
-	      action  new;
-	      source  faceToFace;
-	      sourceInfo                                                            {                                                                  set cylinder;                                                  }
-}
+    {
+        name    bottom_patch_negative;
+        type    faceSet;
+        action  new;
+        source  boxToFace;
+        sourceInfo
+        {
+          box (-0.6 -0.6 0.01) (0.6 0.6 41);
+        }
+
+    }
 
 
-{
-	      name    wall;
-	      type    faceSet;
-	     action  delete;						            source  faceToFace;                                                      sourceInfo                                                              {                                                                       set bottomPatch;                                     
-             }
+    {
+        name    top_patch_negative;
+        type    faceSet;
+        action  new;
+        source  boxToFace;
+        sourceInfo
+        {
+ 	  box (-0.6 -0.6 -1.0) (0.6 0.6 39.99);
+        }
 
-}
-{
-	      name    wall;
-	      type    faceSet;
-	      action  delete;	
-	      source  faceToFace;                                              sourceInfo                                                       {                                                                  set  upperPatch;                                     
-	  }
+    }
 
-}
+// new faceSet
+    {
+        name    bottomPatch;
+        type    faceSet;
+        action  new;
+        source  faceToFace;
+        sourceInfo
+        {
+          set cylinder;
+        }
 
+    }
 
+    {
+        name    bottomPatch;
+        type    faceSet;
+        action  delete;
+        source  faceToFace;
+        sourceInfo
+        {
+          set bottom_patch_negative;
+        }
 
+    }
+// new faceSet no. 2
+   {
+        name    topPatch;
+        type    faceSet;
+        action  new;
+        source  faceToFace;
+        sourceInfo
+        {
+          set cylinder;
+        }
 
+    }
 
+    {
+        name    topPatch;
+        type    faceSet;
+        action  delete;
+        source  faceToFace;
+        sourceInfo
+        {
+          set top_patch_negative;
+        }
+
+    }
+// new faceSet no.3
+
+   {
+        name    wall;
+        type    faceSet;
+        action  new;
+        source  faceToFace;
+        sourceInfo
+        {
+          set cylinder;
+        }
+
+    }
+
+    {
+        name    wall;
+        type    faceSet;
+        action  delete;
+        source  faceToFace;
+        sourceInfo
+        {
+          set bottomPatch;
+        }
+
+    }
+
+    {
+        name    wall;
+        type    faceSet;
+        action  delete;
+        source  faceToFace;
+        sourceInfo
+        {
+          set topPatch;
+        }
+
+    }
 );
 
 // ************************************************************************* //

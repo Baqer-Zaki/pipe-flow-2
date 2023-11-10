@@ -1,8 +1,8 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v2206                                 |
-|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 FoamFile
@@ -12,6 +12,7 @@ FoamFile
     class       dictionary;
     object      createPatchDict;
 }
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 // Do a synchronisation of coupled points after creation of any patches.
@@ -24,7 +25,7 @@ patches
 (
     {
         // Name of new patch
-        name upperPatch;
+        name topPatch;
 
         // Dictionary to construct new patch from
         patchInfo
@@ -39,7 +40,7 @@ patches
         patches (inlet outlet topAndBottom);
 
         // If constructFrom = set : name of faceSet
-        set upperPatch;
+        set topPatch;
     }
 
     {
@@ -81,6 +82,5 @@ patches
         set bottomPatch;
     }
 );
-
 
 // ************************************************************************* //

@@ -1,8 +1,8 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v2206                                 |
-|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 FoamFile
@@ -28,27 +28,26 @@ addLayers       false;
 // - to 'snap' the mesh boundary to the surface
 geometry
 {
-   cylinder-2.stl
+    cylinder.stl
     {
         type triSurfaceMesh;
         name cylinder;
     }
 
     // Analytical shape; cylinder, sphere
-    bottomBox
+    bottomPatchBox
     {
         type box;
         min  (-1.0 -1.0 -1.0);
         max  ( 1.0  1.0 0.4);
     }
-       upperBox
+
+    topPatchBox
     {
-	 type box;
-       min  (-1.0 -1.0 39.6);
-       max  ( 1.0  1.0 41.0);
+        type box;
+        min  (-1.0 -1.0 39.6);
+        max  ( 1.0  1.0 41.0);
     }
-
-
 
 }
 
@@ -143,20 +142,22 @@ castellatedMeshControls
     // - outside. Same but cells outside.
 
     refinementRegions
-  {
-   /*    bottomBox
-        { 
+    {
+/*	topPatchBox
+	{
 		mode inside;
-                levels ((1.0 3.0));
-  
-       }
-        upperBox
-       {
-		 mode inside;
-	         levels  ((1.0 3.0));					      } 
-		
-	       	*/   // we made it as a commant 
+		levels ((1.0 3));
+	}
+
+        bottomPatchBox
+        {
+                mode inside;
+                levels ((1.0 3));
+        }
+*/
     }
+
+
     // Mesh selection
     // ~~~~~~~~~~~~~~
 
@@ -165,7 +166,7 @@ castellatedMeshControls
     // section reachable from the locationInMesh is kept.
     // NOTE: This point should never be on a face, always inside a cell, even
     // after refinement.
-    locationInMesh (0.05 0.05 1.5);
+    locationInMesh (0.05 0.05 1.50);
 
 
     // Whether any faceZones (as specified in the refinementSurfaces)
@@ -186,22 +187,24 @@ snapControls
     //- Relative distance for points to be attracted by surface feature point
     //  or edge. True distance is this factor times local
     //  maximum edge length.
-    tolerance 2;
+    tolerance 4.0;
 
     //- Number of mesh displacement relaxation iterations.
-    nSolveIter 10;
+    nSolveIter 30;
 
     //- Maximum number of snapping relaxation iterations. Should stop
     //  before upon reaching a correct mesh.
     nRelaxIter 5;
+    
+    nFeatureSnapIter 10;
 
-   nFeatureSnapIter  10;
-   implicitFeatureSnap true;
-   explicitFeatureSnap false;
-   multiRegionFeatureSnap false;
+    implicitFeatureSnap true;
 
+    explicitFeatureSnap false;
 
+    multiRegionFeatureSnap false;
 
+    
 }
 
 

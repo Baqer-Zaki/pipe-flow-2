@@ -10,7 +10,7 @@ singleGraph
 {
     start   (0.0 -0.5 20.0);
     end     (0.0 0.5 20.0);
-    fields  (U);
+    fields  (Ux);
 
     #includeEtc "caseDicts/postProcessing/graphs/sampleDict.cfg"
 

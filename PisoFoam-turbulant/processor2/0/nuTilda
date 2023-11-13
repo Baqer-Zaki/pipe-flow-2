@@ -22,15 +22,7 @@ internalField   uniform 0;
 
 boundaryField
 {
-    topPatch
-    {
-        type            zeroGradient;
-    }
-    wall
-    {
-        type            zeroGradient;
-    }
-    bottomPatch
+    cylinder
     {
         type            zeroGradient;
     }

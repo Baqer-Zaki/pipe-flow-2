@@ -1,0 +1,14 @@
+cd ${0%/*} || exit 1                        # Run from this directory
+. $WM_PROJECT_DIR/bin/tools/RunFunctions    # Tutorial run functions
+
+rm -r log.pisoFoam
+
+
+#Step-1 now we will decompose parallel
+runApplication decomposePar
+#Step 2 now we run our solver in parallel
+runParallel pisoFoam
+
+#Step 3 now we need to reconstruct
+runApplication reconstructPar
+ 

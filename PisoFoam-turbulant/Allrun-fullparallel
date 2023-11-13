@@ -1,0 +1,32 @@
+ #!/bin/sh
+cd "${0%/*}" || exit                                # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
+@@@                
+#------------------------------------------------------------------------------
+./Allclean
+
+runApplication blockMesh
+#step 1
+decomposePar > log.meshDecomposePar
+restore0Dir -processor
+#step 2
+runParallel snappyHexMesh -overwrite
+runApplication topoSet
+runApplication createPatch -overwrite
+#step 3
+reconstructParMesh -constant -mergeTol 1E-06 > log.reconstructParMesh
+ 
+touch snappy_pipe.foam
+# now we run it together with pisoFoam
+#
+#step-1 now we will decompose parallel
+restore0Dir
+runApplication decomposePar  -force
+#Step 2 now we run our solver in parallel
+runParallel pisoFoam
+
+#Step 3 now we need to reconstruct
+runApplication reconstructPar
+
+
+

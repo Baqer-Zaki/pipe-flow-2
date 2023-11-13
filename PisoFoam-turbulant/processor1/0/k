@@ -22,19 +22,9 @@ internalField   uniform 3.75e-05;
 
 boundaryField
 {
-    topPatch
-    {
-        type            zeroGradient;
-    }
-    wall
+    cylinder
     {
         type            kqRWallFunction;
-        value           uniform 3.75e-05;
-    }
-    bottomPatch
-    {
-        type            turbulentIntensityKineticEnergyInlet;
-        intensity       0.05;
         value           uniform 3.75e-05;
     }
     procBoundary1to2

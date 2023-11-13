@@ -22,19 +22,9 @@ internalField   uniform 5.39e-07;
 
 boundaryField
 {
-    topPatch
-    {
-        type            zeroGradient;
-    }
-    wall
+    cylinder
     {
         type            epsilonWallFunction;
-        value           uniform 5.39e-07;
-    }
-    bottomPatch
-    {
-        type            turbulentMixingLengthDissipationRateInlet;
-        mixingLength    0.07;
         value           uniform 5.39e-07;
     }
     procBoundary1to2

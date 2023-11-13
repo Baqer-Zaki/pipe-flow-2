@@ -7,11 +7,11 @@
 \*---------------------------------------------------------------------------*/
 Build  : _76d719d1-20220624 OPENFOAM=2206 version=2206
 Arch   : "LSB;label=32;scalar=64"
-Exec   : decomposePar
+Exec   : decomposePar -force
 Date   : Nov 13 2023
-Time   : 08:51:18
+Time   : 13:09:32
 Host   : MSI
-PID    : 1262
+PID    : 7293
 I/O    : uncollated
 Case   : /home/baqer/Git-hub-OpenFoam/snappy-pipe-2/pipe-flow-2/PisoFoam-turbulant
 nProcs : 1
@@ -26,6 +26,7 @@ Create time
 
 Decomposing mesh
 
+Removing 6 existing processor directories
 Create mesh
 
 Calculating distribution of cells
@@ -42,66 +43,63 @@ Distributing faces to processors
 Distributing points to processors
 
 Constructing processor meshes
-Reading hexRef8 data : cellLevel
-Reading hexRef8 data : pointLevel
-Reading hexRef8 data : level0Edge
 
 Processor 0
-    Number of cells = 28897
-    Number of points = 34050
-    Number of faces shared with processor 2 = 245
-    Number of faces shared with processor 3 = 220
+    Number of cells = 28907
+    Number of points = 34056
+    Number of faces shared with processor 2 = 220
+    Number of faces shared with processor 3 = 240
     Number of processor patches = 2
-    Number of processor faces = 465
-    Number of boundary faces = 7930
+    Number of processor faces = 460
+    Number of boundary faces = 7934
 
 Processor 1
-    Number of cells = 28688
-    Number of points = 35739
-    Number of faces shared with processor 2 = 240
+    Number of cells = 28515
+    Number of points = 35539
+    Number of faces shared with processor 2 = 243
     Number of processor patches = 1
-    Number of processor faces = 240
-    Number of boundary faces = 9094
+    Number of processor faces = 243
+    Number of boundary faces = 9050
 
 Processor 2
-    Number of cells = 28687
-    Number of points = 33811
-    Number of faces shared with processor 0 = 245
-    Number of faces shared with processor 1 = 240
-    Number of processor patches = 2
-    Number of processor faces = 485
-    Number of boundary faces = 7880
-
-Processor 3
-    Number of cells = 28335
-    Number of points = 33389
+    Number of cells = 28381
+    Number of points = 33442
     Number of faces shared with processor 0 = 220
-    Number of faces shared with processor 4 = 243
+    Number of faces shared with processor 1 = 243
     Number of processor patches = 2
     Number of processor faces = 463
-    Number of boundary faces = 7779
+    Number of boundary faces = 7790
+
+Processor 3
+    Number of cells = 28621
+    Number of points = 33722
+    Number of faces shared with processor 0 = 240
+    Number of faces shared with processor 4 = 220
+    Number of processor patches = 2
+    Number of processor faces = 460
+    Number of boundary faces = 7858
 
 Processor 4
-    Number of cells = 28448
-    Number of points = 33546
-    Number of faces shared with processor 3 = 243
-    Number of faces shared with processor 5 = 264
+    Number of cells = 28549
+    Number of points = 33652
+    Number of faces shared with processor 3 = 220
+    Number of faces shared with processor 5 = 266
     Number of processor patches = 2
-    Number of processor faces = 507
-    Number of boundary faces = 7805
+    Number of processor faces = 486
+    Number of boundary faces = 7832
 
 Processor 5
-    Number of cells = 28673
-    Number of points = 35736
-    Number of faces shared with processor 4 = 264
+    Number of cells = 28755
+    Number of points = 35832
+    Number of faces shared with processor 4 = 266
     Number of processor patches = 1
-    Number of processor faces = 264
-    Number of boundary faces = 9096
+    Number of processor faces = 266
+    Number of boundary faces = 9120
 
-Number of processor faces = 1212
-Max number of cells = 28897 (0.963151% above average 28621.3)
+Number of processor faces = 1189
+Max number of cells = 28907 (0.99809% above average 28621.3)
 Max number of processor patches = 2 (20% above average 1.66667)
-Max number of faces between processors = 507 (25.495% above average 404)
+Max number of faces between processors = 486 (22.6241% above average 396.333)
 
 Time = 0
 

@@ -22,18 +22,9 @@ internalField   uniform (0 0 0.1);
 
 boundaryField
 {
-    topPatch
-    {
-        type            zeroGradient;
-    }
-    wall
+    cylinder
     {
         type            noSlip;
-    }
-    bottomPatch
-    {
-        type            fixedValue;
-        value           nonuniform List<vector> 0();
     }
     procBoundary0to2
     {

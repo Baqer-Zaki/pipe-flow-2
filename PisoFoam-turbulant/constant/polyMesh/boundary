@@ -16,26 +16,14 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-3
+1
 (
-    topPatch
-    {
-        type            patch;
-        nFaces          1768;
-        startFace       497836;
-    }
-    wall
+    cylinder
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          46048;
-        startFace       499604;
-    }
-    bottomPatch
-    {
-        type            patch;
-        nFaces          1768;
-        startFace       545652;
+        nFaces          49584;
+        startFace       497836;
     }
 )
 

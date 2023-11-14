@@ -1,0 +1,19 @@
+ #!/bin/sh
+cd "${0%/*}" || exit                                # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
+@@@                
+#------------------------------------------------------------------------------
+./Allclean
+
+runApplication blockMesh
+#step 1
+decomposePar > log.meshDecomposePar
+restore0Dir -processor
+#step 2
+runParallel snappyHexMesh -overwrite
+runApplication topoSet
+runApplication createPatch -overwrite
+#step 3
+reconstructParMesh -constant -mergeTol 1E-06 > log.reconstructParMesh
+ 
+touch snappy_pipe.foam

@@ -61,7 +61,10 @@ PISO
 {
        nNonOrthogonalCorrectors 1;
        nCorrectors          1;
-       nOuterCorrectors    1000; 
+       nOuterCorrectors    1000;
+       pRefCell        0;
+       pRefValue       0;
+
        residualControl
      {	
 	  U

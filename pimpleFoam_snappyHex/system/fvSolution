@@ -38,6 +38,14 @@ solvers
         tolerance       1e-05;
         relTol          0;
     }
+    //first edit to use PIMPLE 
+"(U|k|epsilon|omega|R|nuTilda)Final"
+    {
+        solver          smoothSolver;
+        smoother        symGaussSeidel;
+        tolerance       1e-05;
+	 relTol          0;
+    }
 }
 
 PISO
@@ -48,5 +56,38 @@ PISO
     pRefValue       0;
 }
 
+// we add the PIMPLE CONTROL 
+   PIMPLE
+{
+       nNonOrthogonalCorrectors 1;
+       nCorrectors          1;
+       nOuterCorrectors    1000; 
+       residualControl
+     {	
+	  U
+							                       {
+	         tolerance  1e-3;					         relTol      0;
+									      }
+	 p
+								            {
+									      tolerance  5e-2;
+	      relTol      0;
+									 }
+ }
+
+}
+relaxationFactors
+{
+        fields
+	 {
+		 p      0.4;
+		 pFinal   1;
+         }
+	        equations
+	  {
+	    "(U|k|epsilon|omega|R|nuTilda)"     0.4;
+	    "(U|k|epsilon|omega|R|nuTilda)Final"   1;
+	  }
+}
 
 // ************************************************************************* //

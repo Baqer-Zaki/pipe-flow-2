@@ -23,7 +23,7 @@ touch snappy_pipe.foam
 restore0Dir
 runApplication decomposePar  -force
 #Step 2 now we run our solver in parallel
-runParallel pisoFoam
+runParallel pimpleFoam
 
 #Step 3 now we need to reconstruct
 runApplication reconstructPar
